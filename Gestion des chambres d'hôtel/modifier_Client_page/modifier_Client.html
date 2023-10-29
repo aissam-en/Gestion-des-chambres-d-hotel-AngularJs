@@ -1,0 +1,127 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<h3>Modifier Les Informations du Client: </h3>
+		</div>
+		<div class="col-md-4">
+			<div class="msg_update" ng-show="msg_update">
+				<h3>{{msg_update}}</h3> <!-- msg_update a affichee apres une validation de modification du client -->
+			</div>
+		</div>
+	</div>
+
+	<form class="form-horizontal" id="editClientForm"
+        ng-submit='editClient(client)' novalidate name="editClientForm">
+
+        <div class="form-group"
+            ng-class="{'has-error': editClientForm.clientName.$touched && editClientForm.clientName.$invalid, 'has-success': editClientForm.clientName.$touched && editClientForm.clientName.$valid }">
+            <label class="col-sm-2 control-label" for="clientName">Nom: </label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" ng-model='client.name' name="clientName"
+                    placeholder="Entrez le nom du client" ng-minlength='3' ng-maxlength='20' required>
+                <div ng-messages="editClientForm.clientName.$dirty && editClientForm.clientName.$error" style="color:red">
+                    <div ng-message='required'>le nom est obligatoire.</div>
+                    <div ng-message='minlength'>le nom est trop court (moins de 3 caracteres).</div>
+                    <div ng-message='maxlength'>le nom est trop long (plus de 20 caracteres).</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group"
+            ng-class="{'has-error': editClientForm.clientEmail.$touched && editClientForm.clientEmail.$invalid, 'has-success': editClientForm.clientEmail.$touched && editClientForm.clientEmail.$valid }">
+            <label class="col-sm-2 control-label" for="clientEmail">Email: </label>
+            <div class="col-sm-8">
+                <input class="form-control" type="email" required ng-model='client.email'
+                    name="clientEmail" placeholder="Entrez le e-mail du client">
+                <div ng-messages="editClientForm.clientEmail.$dirty && editClientForm.clientEmail.$error" style="color:red">
+                    <div ng-message='required'>le e-mail est obligatoire.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group"
+            ng-class="{'has-error': editClientForm.clientAddresse.$touched && editClientForm.clientAddresse.$invalid, 'has-success': editClientForm.clientAddresse.$touched && editClientForm.clientAddresse.$valid }">
+            <label class="col-sm-2 control-label" for="clientAddresse">Adresse: </label>
+
+            <div class="col-sm-8">
+                <textarea class="form-control" rows="2" required ng-model='client.addresse'
+                    name="clientAddresse" placeholder="Entrez l'adresse du client"></textarea>
+                <div ng-messages="editClientForm.clientAddresse.$dirty && editClientForm.clientAddresse.$error" style="color:red">
+                    <div ng-message='required'>l'adresse est obligatoire.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group"
+            ng-class="{'has-error': editClientForm.clientNbr_Room.$touched && editClientForm.clientNbr_Room.$invalid, 'has-success': editClientForm.clientNbr_Room.$touched && editClientForm.clientNbr_Room.$valid }">
+            <label class="col-sm-2 control-label" for="clientNbr_Room" required>Nombre de chambres: </label>
+            <div class="col-sm-8">
+                <input class="form-control" type="number" required ng-model='client.nbr_Room' ng-min='1' ng-max='10'
+                    name="clientNbr_Room">
+                <div ng-messages="editClientForm.clientNbr_Room.$dirty && editClientForm.clientNbr_Room.$error" style="color:red">
+                    <div ng-message='required'>Veuillez entrer le nombre de chambres.</div>
+                    <div ng-message='min'>Veuillez choisir un nombre entre 1 et 10.</div>
+                    <div ng-message='max'>Veuillez choisir un nombre entre 1 et 10.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group"
+            ng-class="{'has-error': editClientForm.clientDateDebut.$touched && editClientForm.clientDateDebut.$invalid, 'has-success': editClientForm.clientDateDebut.$touched && editClientForm.clientDateDebut.$valid }">
+            <label class="col-sm-2 control-label" for="clientDateDebut" required>Date de Debut: </label>
+            <div class="col-sm-8">
+                <input class="form-control" type="date" required ng-model='client.dateDebut'
+                    name="clientDateDebut">
+                <div ng-messages="editClientForm.clientDateDebut.$dirty && editClientForm.clientDateDebut.$error" style="color:red">
+                    <div ng-message='required'>Veuillez choisir la date.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group"
+            ng-class="{'has-error': editClientForm.clientDateFin.$touched && editClientForm.clientDateFin.$invalid, 'has-success': editClientForm.clientDateFin.$touched && editClientForm.clientDateFin.$valid }">
+            <label class="col-sm-2 control-label" for="clientDateFin" required>Date de Fin: </label>
+            <div class="col-sm-8">
+                <input class="form-control" type="date" required ng-model='client.dateFin'
+                    name="clientDateFin">
+                <div ng-messages="editClientForm.clientDateFin.$dirty && editClientForm.clientDateFin.$error" style="color:red">
+                    <div ng-message='required'>Veuillez choisir la date.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group"
+            ng-class="{'has-error': editClientForm.clientRoomType.$touched && editClientForm.clientRoomType.$invalid, 'has-success': editClientForm.clientRoomType.$touched && editClientForm.clientRoomType.$valid }">
+            <label class="col-sm-2 control-label" for="clientRoomType">Type de Chambre: </label>
+            <div class="col-sm-8">
+                <select class="form-control" required ng-model="client.roomType"
+                ng-options="roomType as roomType.name for roomType in rooms track by roomType.id" data-width="100%"
+                    name="clientRoomType">
+                </select>
+                <div ng-messages="editClientForm.clientRoomType.$dirty && editClientForm.clientRoomType.$error" style="color:red">
+                    <div ng-message='required'>Veuillez choisir le type de Chambre.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group"
+            ng-class="{'has-error': editClientForm.clientSmoking.$touched && editClientForm.clientSmoking.$invalid, 'has-success': editClientForm.clientSmoking.$touched && editClientForm.clientSmoking.$valid }">
+            <label class="col-sm-2 control-label" for="clientSmoking">Fumer?</label>
+            <div class="col-sm-8">
+                <input type="checkbox" ng-model='client.isSmoking' name="clientSmoking">
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2">
+                <button class="btn btn-success" type="submit" ng-disabled="editClientForm.$invalid">Modifier</button>
+                <a class="btn btn-info" href="#!/home">Annuler</a>
+            </div>
+        </div>
+
+    </form>
+
+
+</div>

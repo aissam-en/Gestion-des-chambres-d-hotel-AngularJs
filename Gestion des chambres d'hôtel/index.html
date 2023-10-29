@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Gestion de reservation de chambre dans l'Hotel</title>
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css"> -->
+	<link rel="stylesheet" href="libs/bootstrap.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<nav class="navbar navbar-default">
+		<!-- *** navbar fix *** -->
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#!/home">Home</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#!/list_Client">Liste Des Clients</a></li>
+					<li><a href="#!/ajouter_Client">Ajouter Un Client</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<!-- *** la vue (change) *** -->
+		<ng-view></ng-view>
+	</div>
+
+
+	<!-- CDNs /ou/ import des fichiers -->
+
+	<!-- AngularJS -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script> -->
+	<script src="libs/angular.1.6.1/angular.js"></script>
+
+	<!-- Jquery.min.js-->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<script src="libs/jquery.min.js"></script>
+
+	<!-- bootstrap.min.js-->
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+	<script src="libs/bootstrap.min.js"></script>
+
+	<!-- angular.min.js-->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script> -->
+	<!-- <script src="libs/angular.min.js"></script> -->
+
+	<!--angular-route.min.js-->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.min.js"></script> -->
+	<script src="libs/angular-route.min.js"></script>
+
+	<!--angular-messages.js-->
+	<script src="libs/angular-messages.js"></script>
+
+	<!-- Firebase -->
+	<!-- <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script> -->
+	<script src="libs/firebase.3.6.6/firebase.js"></script>
+
+	<!-- AngularFire -->
+	<!-- <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script> -->
+	<script src="libs/angularfire.2.3.0/angularfire.min.js"></script>
+
+	<script src="app.js"></script>
+	<script src="home_page/home.js"></script>
+	<script src="list_Client_page/list_Client.js"></script>
+	<script src="ajouter_Client_page/ajouter_Client.js"></script>
+	<script src="modifier_Client_page/modifier_Client.js"></script>
+
+</body>
+</html>

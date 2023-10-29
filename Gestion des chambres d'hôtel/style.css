@@ -1,0 +1,24 @@
+.btn{
+	width: 80px;
+	margin-left: 7px;
+}
+
+.msg_supprime, .msg_ajoute, .msg_update {
+    width: 400px;
+    border: 1px solid #D8D8D8;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: Arial;
+    font-size: 11px;
+    text-transform: uppercase;
+    background-color: rgb(236, 255, 216);
+    color: green;
+    text-align: center;
+    margin-top: 30px;
+}
+
+h3{
+	margin:10px;
+}
+
+

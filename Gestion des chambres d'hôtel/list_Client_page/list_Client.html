@@ -1,0 +1,48 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<h3>Liste des Clients:</h3>
+		</div>
+		<div class="col-md-5">
+			<h3>Search: <input type="text" ng-model="search"></h3>
+		</div>
+		<div class="col-md-4">
+			<div class="msg_supprime" ng-show="msg_supprime">
+				<h3>{{msg_supprime}}</h3><!-- afficher le 'msg_supprime' si tu click sur le button 'supprimer' -->
+			</div>
+		</div>
+	</div>
+
+
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Email</th>
+				<th>Adresse</th>
+				<th>Nombre de chambres</th>
+				<th>Date de Debut</th>
+				<th>Date de Fin</th>
+				<th>Type de Chambre</th>
+				<th>Fumer?</th>
+				<th width=200>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="client in data | filter:search">
+				<td>{{client.name}}</td>
+				<td>{{client.email}}</td>
+				<td>{{client.addresse}}</td>
+				<td>{{client.nbr_Room}}</td>
+				<td>{{client.dateDebut}}</td> 
+				<td>{{client.dateFin}}</td> 
+				<td>{{client.roomType.name}}</td>
+				<td>{{client.isSmoking}}</td>
+				<td>
+					<a href="#!/modifier_Client/{{client.$id}}" class="btn btn-info">Modifier</a>
+					<a href="" ng-click="deleteClient(client)" class="btn btn-danger">Supprimer</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
